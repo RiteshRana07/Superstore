@@ -1,0 +1,19 @@
+1.TOTAL SALES
+
+SELECT SUM(sales) AS TOTAL_SALES FROM superstore;
+
+2.TOP 10 PRODUCTS
+
+SELECT product_name, SUM(sales) AS REVENUE FROM superstore GROUP BY product_name ORDER BY REVENUE DESC LIMIT 10;
+
+3. Region-Wise Profit
+
+SELECT region, SUM(profit) as Total_Profit FROM superstore GROUP BY region ORDER BY Total_Profit DESC;
+
+4. Monthly Sales Trend
+
+SELECT MONTH(order_date) AS Month, SUM(sales) AS Total_Sales FROM superstore GROUP BY Month ORDER BY Month;
+
+5. Loss-Making Products
+
+SELECT product_name, SUM(sales) as Total_Sales FROM superstore GROUP BY product_name HAVING Total_sales < 0;
